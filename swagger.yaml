@@ -1,0 +1,58 @@
+swagger: '2.0'
+info:
+  version: '0.1.0'
+  title: api48
+  description: The RESTful AKB48 API
+host: tpe48.com.tw
+basePath: '/api/v1'
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /member/{id}:
+    get:
+      description: Returns a member based on a single ID
+      parameters:
+        - name: id
+          in: path
+          description: The identifier for this member resource
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Memver response success
+          schema:
+            $ref: '#/definitions/Member'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Member:
+    type: object
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: The identifier for this member resource
+      name:
+        type: string
+        description: The name for this member resource
+  Error:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

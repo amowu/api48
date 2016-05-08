@@ -1,0 +1,13 @@
+{
+  "name": "api48",
+  "version": "0.1.0",
+  "description": "The RESTful AKB48 API",
+  "main": "index.js",
+  "scripts": {
+    "mock": "node index.js"
+  },
+  "devDependencies": {
+    "express": "^4.13.4",
+    "swagger-express-middleware": "^1.0.0-alpha.12"
+  }
+}
